@@ -45,7 +45,7 @@ import {
   changeMemberOrNot,
 } from "app/reducers/auth.reducers";
 
-export interface MainNav2LoggedProps {}
+export interface MainNav2LoggedProps { }
 
 export const web3Modal = new Web3Modal({
   network: "mainnet",
@@ -126,17 +126,17 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
   useEffect(() => {
     (async () => {
       try {
-        if (!signingClient && localStorage.getItem("address")) {
-          await connectToCoreum();
+        if (!signingClient && localStorage.getItem("address") && localStorage.getItem("wallet_type")) {
+          await connectToCoreum(localStorage.getItem("wallet_type"));
         }
       } catch (err) {
-        setTimeout(() => connectToCoreum(), 1000);
+        // setTimeout(() => connectToCoreum(), 1000);
       }
     })();
   }, [signingClient, connectToCoreum]);
 
-  const authenticate = async () => {
-    await connectToCoreum();
+  const authenticate = async (wallet_type) => {
+    await connectToCoreum(wallet_type);
   };
 
   let timeout1, timeout2; // NodeJS.Timeout
@@ -255,7 +255,8 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
   const handleSelectNetwork = async (networkSymbol) => {
     let previousNetworkSymbol = currentNetworkSymbol;
     if (networkSymbol === PLATFORM_NETWORKS.COREUM) {
-      await connectToCoreum();
+      // await connectToCoreum();
+      dispatch(changeNetworkSymbol(PLATFORM_NETWORKS.COREUM));
     } else if (networkSymbol === PLATFORM_NETWORKS.NEAR) {
       disconnectFromCoreum();
     } else {
@@ -595,7 +596,7 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
                         : "hover:bg-neutral-100 dark:hover:bg-neutral-700",
                       "py-2 px-2 transition cursor-pointer duration-150 ease-in-out rounded-lg flex gap-2 items-center"
                     )}
-                    // onClick={() =>                       handleSelectNetwork(PLATFORM_NETWORKS.NEAR)                     }
+                  // onClick={() =>                       handleSelectNetwork(PLATFORM_NETWORKS.NEAR)                     }
                   >
                     <img
                       src="/images/icons/near.png"
@@ -615,7 +616,7 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
                         : "hover:bg-neutral-100 dark:hover:bg-neutral-700",
                       "py-2 px-2 transition cursor-pointer duration-150 ease-in-out rounded-lg flex gap-2 items-center"
                     )}
-                    // onClick={() =>                       handleSelectNetwork(PLATFORM_NETWORKS.NEAR)                     }
+                  // onClick={() =>                       handleSelectNetwork(PLATFORM_NETWORKS.NEAR)                     }
                   >
                     <img
                       src="/images/icons/xrp2.png"
@@ -635,7 +636,7 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
                         : "hover:bg-neutral-100 dark:hover:bg-neutral-700",
                       "py-2 px-2 transition cursor-pointer duration-150 ease-in-out rounded-lg flex gap-2 items-center"
                     )}
-                    // onClick={() =>                       handleSelectNetwork(PLATFORM_NETWORKS.NEAR)                     }
+                  // onClick={() =>                       handleSelectNetwork(PLATFORM_NETWORKS.NEAR)                     }
                   >
                     <img
                       src="/images/icons/atom.png"
@@ -655,7 +656,7 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
                         : "hover:bg-neutral-100 dark:hover:bg-neutral-700",
                       "py-2 px-2 transition cursor-pointer duration-150 ease-in-out rounded-lg flex gap-2 items-center"
                     )}
-                    // onClick={() =>                       handleSelectNetwork(PLATFORM_NETWORKS.NEAR)                     }
+                  // onClick={() =>                       handleSelectNetwork(PLATFORM_NETWORKS.NEAR)                     }
                   >
                     <img
                       src="/images/icons/solana.png"
@@ -675,7 +676,7 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
                         : "hover:bg-neutral-100 dark:hover:bg-neutral-700",
                       "py-2 px-2 transition cursor-pointer duration-150 ease-in-out rounded-lg flex gap-2 items-center"
                     )}
-                    // onClick={() =>                       handleSelectNetwork(PLATFORM_NETWORKS.NEAR)                     }
+                  // onClick={() =>                       handleSelectNetwork(PLATFORM_NETWORKS.NEAR)                     }
                   >
                     <img
                       src="/images/icons/hedera.png"
@@ -695,7 +696,7 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
                         : "hover:bg-neutral-100 dark:hover:bg-neutral-700",
                       "py-2 px-2 transition cursor-pointer duration-150 ease-in-out rounded-lg flex gap-2 items-center"
                     )}
-                    // onClick={() =>                       handleSelectNetwork(PLATFORM_NETWORKS.NEAR)                     }
+                  // onClick={() =>                       handleSelectNetwork(PLATFORM_NETWORKS.NEAR)                     }
                   >
                     <img
                       src="/images/icons/tezos.png"
@@ -714,30 +715,86 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
           </div>
         </div>
 
-        <ButtonPrimary
-          onClick={() => {
-            if (isSupportedNetwork(currentNetworkSymbol) === true) {
-              if (currentNetworkSymbol === PLATFORM_NETWORKS.COREUM)
-                authenticate();
-              else if (currentNetworkSymbol === PLATFORM_NETWORKS.NEAR) {
-                console.log("selected NEAR ");
+        <div className="relative dropdown">
+          <ButtonPrimary
+            onClick={() => {
+              if (isSupportedNetwork(currentNetworkSymbol) === true) {
+                if (currentNetworkSymbol === PLATFORM_NETWORKS.COREUM) {
+                  // authenticate();
+                }
+                else if (currentNetworkSymbol === PLATFORM_NETWORKS.NEAR) {
+                  console.log("selected NEAR ");
+                } else {
+                  onClickConnectEVMWallet();
+                }
               } else {
-                onClickConnectEVMWallet();
+                toast.warn("Please select a network and try again.");
               }
-            } else {
-              toast.warn("Please select a network and try again.");
-            }
-          }}
-          sizeClass="px-4 py-2 sm:px-5"
-        >
-          <IoWalletOutline size={22} />
-          {isEmpty(walletAddress) === false && walletStatus === true ? (
-            <span className="pl-2">{getShortAddress(walletAddress)}</span>
-          ) : (
-            <span className="pl-2">Wallet connect</span>
-          )}
-        </ButtonPrimary>
-
+            }}
+            sizeClass="px-4 py-2 sm:px-5"
+          >
+            <IoWalletOutline size={22} />
+            {isEmpty(walletAddress) === false && walletStatus === true ? (
+              <span className="pl-2">{getShortAddress(walletAddress)}</span>
+            ) : (
+              <span className="pl-2">Wallet connect</span>
+            )}
+          </ButtonPrimary>
+          {currentNetworkSymbol === PLATFORM_NETWORKS.COREUM ?
+            <div className="dropdown-content">
+              <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-black ring-opacity-5">
+                <div className="relative grid bg-white dark:bg-neutral-800 px-2 py-2">
+                  <div
+                    className="py-2 px-2 transition cursor-pointer duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 flex gap-2 items-center"
+                    onClick={() => { authenticate("keplr"); }}
+                  >
+                    <img
+                      src="/images/icons/keplr.png"
+                      className="w-[25px] h-[25px]"
+                      width={25}
+                      height={25}
+                      alt=""
+                    ></img>
+                    <span className="dark:text-white text-neutral-900 text-sm">
+                      Keplr
+                    </span>
+                  </div>
+                  <div
+                    className="py-2 px-2 transition cursor-pointer duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 flex gap-2 items-center"
+                    onClick={() => { authenticate("leap"); }}
+                  >
+                    <img
+                      src="/images/icons/leap.png"
+                      className="w-[25px] h-[25px]"
+                      width={25}
+                      height={25}
+                      alt=""
+                    ></img>
+                    <span className="dark:text-white text-neutral-900 text-sm">
+                      Leap
+                    </span>
+                  </div>
+                  <div
+                    className="py-2 px-2 transition cursor-pointer duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 flex gap-2 items-center"
+                    onClick={() => { authenticate("cosmostation"); }}
+                  >
+                    <img
+                      src="/images/icons/cosmostation.png"
+                      className="w-[25px] h-[25px]"
+                      width={25}
+                      height={25}
+                      alt=""
+                    ></img>
+                    <span className="dark:text-white text-neutral-900 text-sm">
+                      Cosmostation
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div> :
+            <></>
+          }
+        </div>
         {!isEmpty(walletAddress) && <AvatarDropdown />}
 
         <div className="flex items-center space-x-3 lg:hidden">
