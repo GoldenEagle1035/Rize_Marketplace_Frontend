@@ -731,7 +731,7 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
                 toast.warn("Please select a network and try again.");
               }
             }}
-            sizeClass="px-4 py-2 sm:px-5"
+            sizeClass="px-4 py-2 sm:px-5 my-2"
           >
             <IoWalletOutline size={22} />
             {isEmpty(walletAddress) === false && walletStatus === true ? (
@@ -741,7 +741,7 @@ const MainNav2Logged: FC<MainNav2LoggedProps> = () => {
             )}
           </ButtonPrimary>
           {currentNetworkSymbol === PLATFORM_NETWORKS.COREUM ?
-            <div className="dropdown-content">
+            <div className="dropdown-content !w-full">
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-black ring-opacity-5">
                 <div className="relative grid bg-white dark:bg-neutral-800 px-2 py-2">
                   <div
