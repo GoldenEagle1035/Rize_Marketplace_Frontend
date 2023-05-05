@@ -1,0 +1,79 @@
+[debug] [2023-04-29T18:16:35.403Z] ----------------------------------------------------------------------
+[debug] [2023-04-29T18:16:35.406Z] Command:       /root/.nvm/versions/node/v16.18.0/bin/node /usr/local/bin/firebase login
+[debug] [2023-04-29T18:16:35.406Z] CLI Version:   11.29.1
+[debug] [2023-04-29T18:16:35.407Z] Platform:      linux
+[debug] [2023-04-29T18:16:35.407Z] Node Version:  v16.18.0
+[debug] [2023-04-29T18:16:35.408Z] Time:          Sun Apr 30 2023 02:16:35 GMT+0800 (Singapore Standard Time)
+[debug] [2023-04-29T18:16:35.408Z] ----------------------------------------------------------------------
+[debug] 
+[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=585278346&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2023-04-29T22:00:40.521Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2023-04-29T22:00:40.523Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"b592a3e5-e567-4f93-819a-bc61df02a680"}
+[debug] [2023-04-29T22:00:40.955Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2023-04-29T22:00:40.955Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"2z0woZs6gX970YekJ6ccconCQRMZ7T0vyU-AMxQSLTo"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    B592A
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=5QpSfFNjYNt1YfWjcBrigYwi4XtuUlD0MV2zcW1yU1c&session=b592a3e5-e567-4f93-819a-bc61df02a680&attest=2z0woZs6gX970YekJ6ccconCQRMZ7T0vyU-AMxQSLTo
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
+[debug] [2023-04-29T23:36:45.526Z] ----------------------------------------------------------------------
+[debug] [2023-04-29T23:36:45.528Z] Command:       /root/.nvm/versions/node/v16.18.0/bin/node /usr/local/bin/firebase login
+[debug] [2023-04-29T23:36:45.529Z] CLI Version:   11.29.1
+[debug] [2023-04-29T23:36:45.529Z] Platform:      linux
+[debug] [2023-04-29T23:36:45.529Z] Node Version:  v16.18.0
+[debug] [2023-04-29T23:36:45.530Z] Time:          Sun Apr 30 2023 07:36:45 GMT+0800 (Singapore Standard Time)
+[debug] [2023-04-29T23:36:45.530Z] ----------------------------------------------------------------------
+[debug] 
+[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=721838810&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2023-04-30T02:22:42.159Z] ----------------------------------------------------------------------
+[debug] [2023-04-30T02:22:42.161Z] Command:       /root/.nvm/versions/node/v16.18.0/bin/node /usr/local/bin/firebase login
+[debug] [2023-04-30T02:22:42.161Z] CLI Version:   11.29.1
+[debug] [2023-04-30T02:22:42.162Z] Platform:      linux
+[debug] [2023-04-30T02:22:42.162Z] Node Version:  v16.18.0
+[debug] [2023-04-30T02:22:42.163Z] Time:          Sun Apr 30 2023 10:22:42 GMT+0800 (Singapore Standard Time)
+[debug] [2023-04-30T02:22:42.163Z] ----------------------------------------------------------------------
+[debug] 
+[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=673083004&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2023-04-30T14:58:16.116Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2023-04-30T14:58:16.118Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"2ab7ed7f-9a39-4960-8141-70c79b55953a"}
+[debug] [2023-04-30T14:58:16.627Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2023-04-30T14:58:16.627Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"73op53IU9D8dIcIGq2ePWZiAwwODSXsO_BpY-TbRhRc"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    2AB7E
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=ya0Zu56pZXmKEcGqmx4KdDmx42YWjsBPTGv6ocjp-5A&session=2ab7ed7f-9a39-4960-8141-70c79b55953a&attest=73op53IU9D8dIcIGq2ePWZiAwwODSXsO_BpY-TbRhRc
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 

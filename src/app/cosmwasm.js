@@ -220,6 +220,7 @@ export const SigningCosmWasmProvider = ({ children }) => {
     if (signingClient) {
       localStorage.removeItem("address");
       localStorage.removeItem("wallet_type");
+      localStorage.removeItem("walletconnect");
       signingClient.disconnect();
     }
     setWalletAddress("");
